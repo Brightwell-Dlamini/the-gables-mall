@@ -116,18 +116,7 @@ export default function Home() {
                 Discover our story <span aria-hidden>→</span>
               </Link>
             </div>
-            <div className="lg:col-span-7 order-1 lg:order-2 grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl">
-                <Image src={images.entrance} alt="Entrance" fill sizes="30vw" className="object-cover" quality={75} />
-              </div>
-              <div className="flex flex-col gap-3 sm:gap-4">
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl flex-1">
-                  <Image src={images.aerial} alt="Aerial" fill sizes="30vw" className="object-cover" quality={70} loading="lazy" />
-                </div>
-                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl flex-1">
-                  <Image src={images.exterior} alt="Exterior" fill sizes="30vw" className="object-cover" quality={70} loading="lazy" />
-                </div>
-              </div>
+           
             </div>
           </div>
         </div>
