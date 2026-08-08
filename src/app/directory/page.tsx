@@ -72,59 +72,83 @@ export default function DirectoryPage() {
 
   const filtered = useMemo(() => {
     return stores.filter((s) => {
-      const matchCat = filter === "All" || s.category === filter || s.category.includes(filter);
-      const matchQ = !q || s.name.toLowerCase().includes(q.toLowerCase()) || s.shop.toLowerCase().includes(q.toLowerCase());
+      const matchCat =
+        filter === "All" ||
+        s.category === filter ||
+        s.category.toLowerCase().includes(filter.toLowerCase());
+      const matchQ =
+        !q ||
+        s.name.toLowerCase().includes(q.toLowerCase()) ||
+        s.shop.toLowerCase().includes(q.toLowerCase()) ||
+        (s.category && s.category.toLowerCase().includes(q.toLowerCase()));
       return matchCat && matchQ;
     });
   }, [filter, q]);
 
+  const clearSearch = () => setQ("");
+
   return (
     <>
-      <section className="pt-28 pb-12 bg-gradient-to-b from-[#e5f3e8] to-[#FBFBFB]">
+      <section className="pt-28 pb-12 bg-gradient-to-b from-[#e5f3e8] to-[#FBFBFB] dark:from-[#0f1a14] dark:to-[#0a0f0c]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Store Directory</h1>
-          <p className="text-slate-600 max-w-xl mx-auto mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">
+            Store Directory
+          </h1>
+          <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-8">
             Browse {stores.length}+ listed tenants across fashion, food, banking, entertainment and more.
           </p>
-          <input
-            type="search"
-            placeholder="Search by name or shop number..."
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-            className="w-full max-w-md mx-auto block px-5 py-3 rounded-full border border-[#d1e7d9] focus:outline-none focus:ring-2 focus:ring-[#22c55e] bg-white shadow-sm"
-            aria-label="Search stores"
-          />
+          <div className="relative w-full max-w-md mx-auto">
+            <input
+              type="search"
+              placeholder="Search by name, category or shop number..."
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+              className="w-full px-5 py-3.5 pr-12 rounded-full border border-[#d1e7d9] dark:border-[#166534] focus:outline-none focus:ring-2 focus:ring-[#00b074] dark:focus:ring-[#17ff49] bg-white dark:bg-[#0f1a14] text-slate-900 dark:text-white shadow-sm placeholder:text-slate-400"
+              aria-label="Search stores by name, category or shop number"
+            />
+            {q && (
+              <button
+                type="button"
+                onClick={clearSearch}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm font-medium"
+                aria-label="Clear search"
+              >
+                Clear
+              </button>
+            )}
+          </div>
         </div>
       </section>
 
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
+        <div className="flex flex-wrap justify-center gap-2 mb-10" role="group" aria-label="Filter by category">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49] focus-visible:ring-offset-2 ${
                 filter === cat
                   ? "gradient-green text-white shadow"
-                  : "bg-[#e5f3e8] text-slate-700 hover:bg-[#d1e7d9]"
+                  : "bg-[#e5f3e8] dark:bg-[#14532d]/60 text-slate-700 dark:text-slate-200 hover:bg-[#d1e7d9] dark:hover:bg-[#166534]"
               }`}
+              aria-pressed={filter === cat}
             >
               {cat}
             </button>
           ))}
         </div>
 
-        <p className="text-center text-sm text-slate-500 mb-6">
+        <p className="text-center text-sm text-slate-500 dark:text-slate-400 mb-6" aria-live="polite">
           Showing {filtered.length} of {stores.length} stores
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {filtered.map((store) => (
-            <div
+            <article
               key={`${store.name}-${store.shop}`}
-              className="group p-5 rounded-2xl border border-[#d1e7d9] bg-white hover:border-[#22c55e] hover:shadow-md transition-all flex gap-4 items-center"
+              className="group p-5 rounded-2xl border border-[#d1e7d9] dark:border-[#166534] bg-white dark:bg-[#0f1a14] hover:border-[#22c55e] dark:hover:border-[#17ff49] hover:shadow-md transition-all flex gap-4 items-center"
             >
-              <div className="w-14 h-14 shrink-0 bg-[#FBFBFB] rounded-xl flex items-center justify-center p-2 overflow-hidden">
+              <div className="w-14 h-14 shrink-0 bg-[#FBFBFB] dark:bg-[#0a0f0c] rounded-xl flex items-center justify-center p-2 overflow-hidden border border-transparent dark:border-[#166534]/50">
                 {store.logo ? (
                   <Image
                     src={`${LOGO_BASE}${store.logo}`}
@@ -134,36 +158,55 @@ export default function DirectoryPage() {
                     className="max-h-10 w-auto object-contain"
                   />
                 ) : (
-                  <span className="text-xs font-bold text-[#00b074]">
+                  <span className="text-xs font-bold text-[#00b074] dark:text-[#17ff49]">
                     {store.name.slice(0, 2).toUpperCase()}
                   </span>
                 )}
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="font-semibold group-hover:text-[#00b074] transition-colors truncate">
+                <h3 className="font-semibold text-slate-900 dark:text-white group-hover:text-[#00b074] dark:group-hover:text-[#17ff49] transition-colors truncate">
                   {store.name}
                 </h3>
-                <p className="text-sm text-slate-500">{store.category}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{store.category}</p>
                 <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-0.5 text-xs">
                   {store.shop && (
-                    <span className="text-[#00b074] font-medium">Shop {store.shop}</span>
+                    <span className="text-[#00b074] dark:text-[#17ff49] font-medium">
+                      Shop {store.shop}
+                    </span>
                   )}
                   {store.tel && (
-                    <a href={`tel:${store.tel.replace(/\s/g, "")}`} className="text-slate-500 hover:text-[#00b074]">
+                    <a
+                      href={`tel:${store.tel.replace(/\s/g, "")}`}
+                      className="text-slate-500 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors"
+                    >
                       {store.tel}
                     </a>
                   )}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
         {filtered.length === 0 && (
-          <p className="text-center text-slate-500 py-12">No stores match your search.</p>
+          <div className="text-center py-16">
+            <p className="text-slate-500 dark:text-slate-400 text-lg mb-4">
+              No stores match your search.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setQ("");
+                setFilter("All");
+              }}
+              className="px-5 py-2.5 rounded-full bg-[#00b074] hover:bg-[#009a62] text-white text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#17ff49]"
+            >
+              Reset filters
+            </button>
+          </div>
         )}
 
-        <p className="text-center text-sm text-slate-500 mt-10">
+        <p className="text-center text-sm text-slate-500 dark:text-slate-400 mt-10">
           Full directory and map available in-centre. Tenant details may change.
         </p>
       </section>
