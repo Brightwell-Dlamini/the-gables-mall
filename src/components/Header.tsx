@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import ThemeToggle from "./ThemeToggle";
 import { images } from "@/lib/assets";
-import { Menu, X } from "lucide-react";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -16,6 +15,19 @@ const nav = [
   { href: "/events", label: "Events" },
   { href: "/contact", label: "Contact" },
 ];
+
+// SVG Icons
+const MenuIcon = () => (
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
 
 export default function Header() {
   const pathname = usePathname();
@@ -109,11 +121,7 @@ export default function Header() {
               aria-label="Toggle menu"
               aria-expanded={isOpen}
             >
-              {isOpen ? (
-                <X className="w-6 h-6 text-slate-700 dark:text-slate-300" />
-              ) : (
-                <Menu className="w-6 h-6 text-slate-700 dark:text-slate-300" />
-              )}
+              {isOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
           </div>
         </div>
