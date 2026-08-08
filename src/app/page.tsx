@@ -13,8 +13,11 @@ import LeaseCTA from "@/components/home/LeaseCTA";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "The Gables Shopping Centre — Ezulwini’s premier destination. 96+ stores, cinema, dining, free parking.",
+    "The Gables Shopping Centre — Ezulwini’s premier destination. 96+ stores, cinema, dining, free parking. Dutch-inspired architecture in the heart of Shebas Rocks.",
   openGraph: {
+    title: "The Gables Shopping Centre | Ezulwini, Eswatini",
+    description:
+      "96+ stores · Cinema · Dining · Banking · Free secure parking — nestled in Shebas Rocks, minutes from two national parks.",
     images: [{ url: images.entrance, width: 1200, height: 630 }],
   },
 };
