@@ -17,13 +17,13 @@ const nav = [
 ];
 
 const MenuIcon = () => (
-  <svg 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
     strokeLinecap="round"
   >
     <line x1="4" y1="7" x2="20" y2="7" />
@@ -33,13 +33,13 @@ const MenuIcon = () => (
 );
 
 const CloseIcon = () => (
-  <svg 
-    width="24" 
-    height="24" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
     strokeLinecap="round"
   >
     <path d="M18 6L6 18" />
@@ -48,14 +48,14 @@ const CloseIcon = () => (
 );
 
 const ArrowRightIcon = () => (
-  <svg 
-    width="16" 
-    height="16" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2.5" 
-    strokeLinecap="round" 
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
     strokeLinejoin="round"
     className="transition-transform duration-300 group-hover:translate-x-1"
   >
@@ -81,14 +81,26 @@ export default function Header() {
     setIsOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <>
       <header
         className={`
           fixed top-0 left-0 right-0 z-50
           transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-          ${isScrolled 
-            ? "bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-sm" 
+          ${isScrolled
+            ? "bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-sm"
             : "bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm"
           }
         `}
@@ -98,7 +110,7 @@ export default function Header() {
             {/* Logo */}
             <Link
               href="/"
-              className="relative h-10 lg:h-12 w-[140px] lg:w-[180px] shrink-0"
+              className="relative h-10 lg:h-12 w-[140px] lg:w-[180px] shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49] rounded"
             >
               <Image
                 src={images.logo}
@@ -110,7 +122,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden lg:flex items-center gap-1" aria-label="Main">
               {nav.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -120,6 +132,7 @@ export default function Header() {
                     className={`
                       px-5 py-2.5 text-sm font-medium rounded-lg
                       transition-all duration-200
+                      focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49]
                       ${isActive
                         ? "text-[#00b074] dark:text-[#17ff49] bg-emerald-50 dark:bg-emerald-950/30"
                         : "text-slate-800 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50"
@@ -130,14 +143,14 @@ export default function Header() {
                   </Link>
                 );
               })}
-              
-              <div className="w-px h-6 bg-slate-200 dark:bg-slate-700 mx-3" />
-              
+
+              <div className="w-px h-6 bg-slate-200 dark:bg-slate-700 mx-3" aria-hidden />
+
               <ThemeToggle />
-              
+
               <Link
                 href="/contact"
-                className="group ml-3 px-6 py-2.5 rounded-full bg-[#00b074] hover:bg-[#009a62] text-white text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
+                className="group ml-3 px-6 py-2.5 rounded-full bg-[#00b074] hover:bg-[#009a62] text-white text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#17ff49] focus-visible:ring-offset-2"
               >
                 Lease Space
                 <ArrowRightIcon />
@@ -152,8 +165,9 @@ export default function Header() {
                 className={`
                   w-10 h-10 flex items-center justify-center rounded-lg
                   transition-all duration-200
-                  ${isOpen 
-                    ? "bg-emerald-50 dark:bg-emerald-950/30 text-[#00b074] dark:text-[#17ff49]" 
+                  focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49]
+                  ${isOpen
+                    ? "bg-emerald-50 dark:bg-emerald-950/30 text-[#00b074] dark:text-[#17ff49]"
                     : "text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
                   }
                 `}
@@ -171,12 +185,13 @@ export default function Header() {
           className={`
             lg:hidden fixed inset-0 top-[72px] z-40
             transition-all duration-300
-            ${isOpen 
-              ? "opacity-100 pointer-events-auto bg-black/30 dark:bg-black/50" 
+            ${isOpen
+              ? "opacity-100 pointer-events-auto bg-black/30 dark:bg-black/50"
               : "opacity-0 pointer-events-none"
             }
           `}
           onClick={() => setIsOpen(false)}
+          aria-hidden
         />
 
         {/* Mobile Menu */}
@@ -184,8 +199,8 @@ export default function Header() {
           className={`
             lg:hidden fixed top-[72px] left-0 right-0 z-50
             transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]
-            ${isOpen 
-              ? "translate-y-0 opacity-100" 
+            ${isOpen
+              ? "translate-y-0 opacity-100"
               : "-translate-y-4 opacity-0 pointer-events-none"
             }
           `}
@@ -201,6 +216,7 @@ export default function Header() {
                     className={`
                       flex items-center justify-between px-4 py-3.5 rounded-xl
                       transition-all duration-200
+                      focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49]
                       ${isActive
                         ? "bg-emerald-50 dark:bg-emerald-950/30 text-[#00b074] dark:text-[#17ff49]"
                         : "text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50"
@@ -214,11 +230,11 @@ export default function Header() {
                   </Link>
                 );
               })}
-              
+
               <div className="p-2 mt-2 border-t border-slate-200 dark:border-slate-800">
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl bg-[#00b074] hover:bg-[#009a62] text-white font-medium transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl bg-[#00b074] hover:bg-[#009a62] text-white font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#17ff49]"
                 >
                   Lease Space
                   <ArrowRightIcon />
