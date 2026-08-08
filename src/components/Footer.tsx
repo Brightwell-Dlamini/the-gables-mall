@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { images } from "@/lib/assets";
 
-// Elegant SVG Icons
 const MapPinIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -80,15 +79,14 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="relative bg-gradient-to-b from-white to-slate-50/80 dark:from-slate-950 dark:to-slate-900/80 border-t border-slate-200/20 dark:border-slate-800/20">
-      {/* Decorative gradient line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00b074]/20 dark:via-[#17ff49]/20 to-transparent" />
-      
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="py-16 lg:py-24">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
             {/* Brand Column */}
             <div className="space-y-6">
-              <Link href="/" className="inline-block group">
+              <Link href="/" className="inline-block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49] rounded">
                 <Image
                   src={images.logo}
                   alt="The Gables Shopping Centre"
@@ -123,7 +121,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="group flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors duration-200"
+                      className="group flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors duration-200 focus:outline-none focus-visible:underline"
                     >
                       <ArrowUpRightIcon />
                       <span>{link.label}</span>
@@ -180,7 +178,7 @@ export default function Footer() {
                   </div>
                   <a
                     href="tel:+26824171173"
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors focus:outline-none focus-visible:underline"
                   >
                     +268 2417 1173
                   </a>
@@ -191,14 +189,13 @@ export default function Footer() {
                   </div>
                   <a
                     href="mailto:info@thegables.co.sz"
-                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors focus:outline-none focus-visible:underline"
                   >
                     info@thegables.co.sz
                   </a>
                 </li>
               </ul>
 
-              {/* Social Links */}
               <div className="mt-8">
                 <div className="flex items-center gap-2">
                   {socialLinks.map((social) => {
@@ -208,7 +205,7 @@ export default function Footer() {
                         key={social.label}
                         href={social.href}
                         aria-label={social.label}
-                        className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:bg-[#00b074] hover:text-white dark:hover:bg-[#17ff49] dark:hover:text-slate-950 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#00b074]/20"
+                        className="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:bg-[#00b074] hover:text-white dark:hover:bg-[#17ff49] dark:hover:text-slate-950 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#00b074]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49]"
                       >
                         <Icon />
                       </a>
@@ -220,7 +217,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-slate-200/20 dark:border-slate-800/20 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-slate-500 dark:text-slate-500 tracking-wide">
             © {new Date().getFullYear()} The Gables™. All rights reserved.
@@ -232,7 +228,7 @@ export default function Footer() {
               href="https://www.sm3-creative.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-700 dark:text-slate-300 hover:text-[#00b074] dark:hover:text-[#17ff49] font-medium transition-colors"
+              className="text-slate-700 dark:text-slate-300 hover:text-[#00b074] dark:hover:text-[#17ff49] font-medium transition-colors focus:outline-none focus-visible:underline"
             >
               SM3 Creative
             </a>
