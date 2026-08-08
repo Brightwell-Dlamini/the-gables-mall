@@ -38,10 +38,10 @@ const eventsList = [
 export default function EventsPage() {
   return (
     <>
-      <section className="relative h-[40vh] min-h-[280px] flex items-end">
+      <section className="relative h-[40vh] min-h-[280px] flex items-end" aria-label="Events hero">
         <Image
           src={images.exterior}
-          alt=""
+          alt="The Gables Shopping Centre exterior"
           fill
           priority
           sizes="100vw"
@@ -80,7 +80,9 @@ export default function EventsPage() {
                 <p className="text-[#00b074] dark:text-[#17ff49] text-sm font-semibold mb-2">
                   {ev.date}
                 </p>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-4">{ev.title}</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-slate-900 dark:text-white">
+                  {ev.title}
+                </h2>
                 <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
                   {ev.body}
                 </p>
@@ -96,7 +98,7 @@ export default function EventsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block px-8 py-3.5 bg-white text-[#00b074] font-bold rounded-full hover:bg-slate-100 transition-colors"
+            className="inline-block px-8 py-3.5 bg-white text-[#00b074] font-bold rounded-full hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#00b074]"
           >
             Contact management
           </Link>
