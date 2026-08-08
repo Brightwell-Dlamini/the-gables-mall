@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,20 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Gables Shopping Centre | Premier Shopping Destination in Ezulwini, Eswatini",
+  title: {
+    default: "The Gables Shopping Centre | Ezulwini, Eswatini",
+    template: "%s | The Gables",
+  },
   description:
-    "Discover The Gables Shopping Centre in Ezulwini, Eswatini. Home to 96+ stores including Pick n Pay, Woolworths, Shoprite, Clicks, cinema, restaurants, banking and free secure parking. Open 7 days a week.",
-  keywords: [
-    "The Gables",
-    "Ezulwini",
-    "Eswatini",
-    "shopping mall",
-    "Pick n Pay",
-    "Woolworths",
-    "Shoprite",
-    "cinema",
-    "free parking",
-  ],
+    "The Gables Shopping Centre in Ezulwini, Eswatini — 96+ stores, Pick n Pay, Woolworths, Shoprite, Clicks, cinema, restaurants, banking and free secure parking. Dutch-style architecture near two national parks.",
   openGraph: {
     title: "The Gables Shopping Centre",
     description: "Your premier shopping destination in the heart of Ezulwini, Eswatini.",
@@ -47,7 +41,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#FBFBFB] text-slate-900">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
