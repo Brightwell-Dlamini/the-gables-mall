@@ -11,10 +11,10 @@ export const metadata: Metadata = {
 export default function GalleryPage() {
   return (
     <>
-      <section className="relative h-[40vh] min-h-[280px] flex items-end">
+      <section className="relative h-[40vh] min-h-[280px] flex items-end" aria-label="Gallery hero">
         <Image
           src={images.banner03}
-          alt=""
+          alt="Interior atmosphere at The Gables Shopping Centre"
           fill
           priority
           sizes="100vw"
@@ -60,10 +60,10 @@ export default function GalleryPage() {
 
         <div className="mt-16 grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6">
-            <h2 className="font-semibold text-lg mb-4">Centre map</h2>
+            <h2 className="font-semibold text-lg mb-4 text-slate-900 dark:text-white">Centre map</h2>
             <Image
               src={images.mapView}
-              alt="Map view"
+              alt="Map view of The Gables Shopping Centre"
               width={700}
               height={500}
               className="w-full h-auto rounded-lg"
@@ -71,10 +71,10 @@ export default function GalleryPage() {
             />
           </div>
           <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-6 flex flex-col items-center justify-center gap-6">
-            <h2 className="font-semibold text-lg self-start">Site plan</h2>
+            <h2 className="font-semibold text-lg self-start text-slate-900 dark:text-white">Site plan</h2>
             <Image
               src={images.mapVector}
-              alt="Map vector"
+              alt="Site plan vector"
               width={400}
               height={200}
               className="w-full max-w-md h-auto"
@@ -82,7 +82,7 @@ export default function GalleryPage() {
             />
             <Image
               src={images.mapVectorAlt}
-              alt="Map vector alternate"
+              alt="Alternate site plan"
               width={400}
               height={200}
               className="w-full max-w-md h-auto opacity-80"

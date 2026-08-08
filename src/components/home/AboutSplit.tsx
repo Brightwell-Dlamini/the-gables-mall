@@ -25,7 +25,7 @@ export default function AboutSplit() {
             </p>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 text-[#00b074] dark:text-[#17ff49] font-semibold text-lg hover:gap-3 transition-all duration-300 hover:text-[#009a62] dark:hover:text-[#00e64d]"
+              className="inline-flex items-center gap-2 text-[#00b074] dark:text-[#17ff49] font-semibold text-lg hover:gap-3 transition-all duration-300 hover:text-[#009a62] dark:hover:text-[#00e64d] focus:outline-none focus-visible:underline"
             >
               Discover our story <span aria-hidden>→</span>
             </Link>
@@ -34,7 +34,7 @@ export default function AboutSplit() {
             <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-xl shadow-black/10 dark:shadow-black/40">
               <Image
                 src={images.entrance}
-                alt="Entrance"
+                alt="Main entrance of The Gables"
                 fill
                 sizes="30vw"
                 className="object-cover hover:scale-105 transition-transform duration-700"
@@ -45,7 +45,7 @@ export default function AboutSplit() {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl shadow-black/10 dark:shadow-black/40 flex-1">
                 <Image
                   src={images.aerial}
-                  alt="Aerial"
+                  alt="Aerial view of The Gables"
                   fill
                   sizes="30vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
@@ -56,7 +56,7 @@ export default function AboutSplit() {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-xl shadow-black/10 dark:shadow-black/40 flex-1">
                 <Image
                   src={images.exterior}
-                  alt="Exterior"
+                  alt="Exterior architecture of The Gables"
                   fill
                   sizes="30vw"
                   className="object-cover hover:scale-105 transition-transform duration-700"
