@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const LOGO =
@@ -9,7 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-1">
-            <img src={LOGO} alt="The Gables" className="h-12 w-auto mb-4 brightness-0 invert" />
+            <Image src={LOGO} alt="The Gables" width={140} height={48} className="h-12 w-auto mb-4 brightness-0 invert" />
             <p className="text-sm leading-relaxed">
               Premier shopping destination in Ezulwini, Kingdom of Eswatini.
               Value, convenience and community under one roof.

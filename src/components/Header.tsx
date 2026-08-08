@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -22,11 +23,14 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 glass">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <img
+          <Link href="/" className="flex items-center gap-2 shrink-0 relative h-10 md:h-12 w-28 md:w-36">
+            <Image
               src={LOGO}
               alt="The Gables Shopping Centre"
-              className="h-10 md:h-12 w-auto object-contain"
+              fill
+              sizes="144px"
+              className="object-contain object-left"
+              priority
             />
           </Link>
 
@@ -54,6 +58,7 @@ export default function Header() {
             className="md:hidden p-2 rounded-lg hover:bg-[#e5f3e8]"
             onClick={() => setOpen(!open)}
             aria-label="Menu"
+            aria-expanded={open}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {open ? (
