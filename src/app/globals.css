@@ -59,7 +59,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, sans-serif;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Improved focus visibility for keyboard users */
@@ -129,6 +131,16 @@ body {
   animation: shimmer 3s linear infinite;
 }
 
+/* Subtle cinematic zoom for hero imagery */
+@keyframes slow-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.06);
+  }
+}
+
 /* For scrollbar styling in mobile menu */
 .scrollbar-thin::-webkit-scrollbar {
   width: 4px;
@@ -145,4 +157,14 @@ body {
 
 .dark .scrollbar-thin::-webkit-scrollbar-thumb {
   background: #334155;
+}
+
+/* Selection colour matching brand */
+::selection {
+  background: rgba(0, 176, 116, 0.25);
+  color: inherit;
+}
+
+.dark ::selection {
+  background: rgba(23, 255, 73, 0.2);
 }
