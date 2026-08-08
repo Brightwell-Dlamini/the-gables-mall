@@ -19,13 +19,13 @@ const blocks = [
 
 export default function ServicesFacilities() {
   return (
-    <section className="py-20 sm:py-28 bg-white dark:bg-slate-950">
+    <section className="py-20 sm:py-28 bg-white dark:bg-slate-950" aria-labelledby="services-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-[#00b074] dark:text-[#17ff49] font-semibold tracking-wider uppercase text-sm mb-3">
             Amenities
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+          <h2 id="services-heading" className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
             Services & Facilities
           </h2>
         </div>
@@ -44,7 +44,7 @@ export default function ServicesFacilities() {
                     key={item}
                     className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300"
                   >
-                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#00b074] dark:bg-[#17ff49] shrink-0" />
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#00b074] dark:bg-[#17ff49] shrink-0" aria-hidden />
                     {item}
                   </li>
                 ))}

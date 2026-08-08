@@ -22,18 +22,20 @@ const cards = [
 
 export default function EventsTeaser() {
   return (
-    <section className="py-20 sm:py-24">
+    <section className="py-20 sm:py-24" aria-labelledby="events-teaser-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <p className="text-[#00b074] dark:text-[#17ff49] font-semibold tracking-wider uppercase text-sm mb-3">
               What’s on
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold">Events & news</h2>
+            <h2 id="events-teaser-heading" className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+              Events & news
+            </h2>
           </div>
           <Link
             href="/events"
-            className="text-[#00b074] dark:text-[#17ff49] font-semibold hover:underline"
+            className="text-[#00b074] dark:text-[#17ff49] font-semibold hover:underline focus:outline-none focus-visible:underline"
           >
             All events →
           </Link>
@@ -55,7 +57,7 @@ export default function EventsTeaser() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-semibold text-lg mb-2">{card.title}</h3>
+                <h3 className="font-semibold text-lg mb-2 text-slate-900 dark:text-white">{card.title}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400">{card.body}</p>
               </div>
             </article>

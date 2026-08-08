@@ -17,13 +17,13 @@ const anchors = [
 
 export default function AnchorBrands() {
   return (
-    <section className="py-20 sm:py-28 bg-white dark:bg-slate-950">
+    <section className="py-20 sm:py-28 bg-white dark:bg-slate-950" aria-labelledby="anchors-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-[#00b074] dark:text-[#17ff49] font-semibold tracking-wider uppercase text-sm mb-3">
             Directory
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
+          <h2 id="anchors-heading" className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white">
             Anchor brands
           </h2>
         </div>
@@ -38,7 +38,7 @@ export default function AnchorBrands() {
                 alt={b.name}
                 width={140}
                 height={56}
-                className="max-h-14 w-auto object-contain dark:brightness-100"
+                className="max-h-14 w-auto object-contain"
                 loading="lazy"
               />
             </div>
@@ -47,7 +47,7 @@ export default function AnchorBrands() {
         <div className="text-center mt-12">
           <Link
             href="/directory"
-            className="inline-flex px-8 py-3.5 rounded-full border-2 border-[#00b074] dark:border-[#17ff49] text-[#00b074] dark:text-[#17ff49] font-semibold hover:bg-[#00b074] hover:text-white dark:hover:bg-[#17ff49] dark:hover:text-slate-900 transition-all duration-300 hover:scale-105"
+            className="inline-flex px-8 py-3.5 rounded-full border-2 border-[#00b074] dark:border-[#17ff49] text-[#00b074] dark:text-[#17ff49] font-semibold hover:bg-[#00b074] hover:text-white dark:hover:bg-[#17ff49] dark:hover:text-slate-900 transition-all duration-300 hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49] focus-visible:ring-offset-2"
           >
             Full store directory
           </Link>
