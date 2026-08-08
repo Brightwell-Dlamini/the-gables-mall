@@ -88,8 +88,8 @@ export default function Header() {
           fixed top-0 left-0 right-0 z-50
           transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
           ${isScrolled 
-            ? "bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none" 
-            : "bg-white/80 dark:bg-slate-950/80 backdrop-blur-md"
+            ? "bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 shadow-sm" 
+            : "bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm"
           }
         `}
       >
@@ -118,11 +118,11 @@ export default function Header() {
                     key={item.href}
                     href={item.href}
                     className={`
-                      relative px-5 py-2.5 text-sm font-medium tracking-wide rounded-lg
-                      transition-all duration-300
+                      px-5 py-2.5 text-sm font-medium rounded-lg
+                      transition-all duration-200
                       ${isActive
-                        ? "text-[#00b074] dark:text-[#17ff49] bg-emerald-50/80 dark:bg-emerald-950/30"
-                        : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                        ? "text-[#00b074] dark:text-[#17ff49] bg-emerald-50 dark:bg-emerald-950/30"
+                        : "text-slate-800 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/50"
                       }
                     `}
                   >
@@ -137,12 +137,10 @@ export default function Header() {
               
               <Link
                 href="/contact"
-                className="group relative ml-3 px-6 py-2.5 rounded-full bg-[#00b074] hover:bg-[#009a62] dark:bg-[#00b074] dark:hover:bg-[#009a62] text-white text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg"
+                className="group ml-3 px-6 py-2.5 rounded-full bg-[#00b074] hover:bg-[#009a62] text-white text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2"
               >
-                <span className="flex items-center gap-2">
-                  Lease Space
-                  <ArrowRightIcon />
-                </span>
+                Lease Space
+                <ArrowRightIcon />
               </Link>
             </nav>
 
@@ -153,10 +151,10 @@ export default function Header() {
                 onClick={() => setIsOpen(!isOpen)}
                 className={`
                   w-10 h-10 flex items-center justify-center rounded-lg
-                  transition-all duration-300
+                  transition-all duration-200
                   ${isOpen 
                     ? "bg-emerald-50 dark:bg-emerald-950/30 text-[#00b074] dark:text-[#17ff49]" 
-                    : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    : "text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
                   }
                 `}
                 aria-label="Toggle menu"
@@ -205,7 +203,7 @@ export default function Header() {
                       transition-all duration-200
                       ${isActive
                         ? "bg-emerald-50 dark:bg-emerald-950/30 text-[#00b074] dark:text-[#17ff49]"
-                        : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50"
+                        : "text-slate-800 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50"
                       }
                     `}
                   >
@@ -220,7 +218,7 @@ export default function Header() {
               <div className="p-2 mt-2 border-t border-slate-200 dark:border-slate-800">
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl bg-[#00b074] hover:bg-[#009a62] dark:bg-[#00b074] dark:hover:bg-[#009a62] text-white font-medium transition-colors"
+                  className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl bg-[#00b074] hover:bg-[#009a62] text-white font-medium transition-colors"
                 >
                   Lease Space
                   <ArrowRightIcon />
