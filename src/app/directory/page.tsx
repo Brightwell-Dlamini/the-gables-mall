@@ -89,12 +89,17 @@ export default function DirectoryPage() {
 
   return (
     <>
-      <section className="pt-28 pb-12 bg-gradient-to-b from-[#e5f3e8] to-[#FBFBFB] dark:from-[#0f1a14] dark:to-[#0a0f0c]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">
+      <section className="pt-32 pb-14 bg-gradient-to-b from-[#e5f3e8] via-[#f0f9f2] to-[#FBFBFB] dark:from-[#0f1a14] dark:via-[#0c140f] dark:to-[#0a0f0c]">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 text-center">
+          <p className="inline-flex items-center gap-2 text-[#00b074] dark:text-[#17ff49] font-medium tracking-[0.22em] uppercase text-[11px] sm:text-xs mb-4">
+            <span className="w-6 h-px bg-current opacity-70" aria-hidden />
+            Find your store
+            <span className="w-6 h-px bg-current opacity-70" aria-hidden />
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-[-0.03em] mb-5 text-slate-900 dark:text-white">
             Store Directory
           </h1>
-          <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto mb-8">
+          <p className="text-slate-600 dark:text-slate-400 max-w-lg mx-auto mb-10 font-light text-lg">
             Browse {stores.length}+ listed tenants across fashion, food, banking, entertainment and more.
           </p>
           <div className="relative w-full max-w-md mx-auto">
@@ -103,14 +108,14 @@ export default function DirectoryPage() {
               placeholder="Search by name, category or shop number..."
               value={q}
               onChange={(e) => setQ(e.target.value)}
-              className="w-full px-5 py-3.5 pr-12 rounded-full border border-[#d1e7d9] dark:border-[#166534] focus:outline-none focus:ring-2 focus:ring-[#00b074] dark:focus:ring-[#17ff49] bg-white dark:bg-[#0f1a14] text-slate-900 dark:text-white shadow-sm placeholder:text-slate-400"
+              className="w-full px-6 py-4 pr-16 rounded-full border border-[#d1e7d9] dark:border-[#166534] focus:outline-none focus:ring-2 focus:ring-[#00b074] dark:focus:ring-[#17ff49] bg-white/90 dark:bg-[#0f1a14]/90 backdrop-blur text-slate-900 dark:text-white shadow-lg shadow-black/5 dark:shadow-black/20 placeholder:text-slate-400 text-[15px]"
               aria-label="Search stores by name, category or shop number"
             />
             {q && (
               <button
                 type="button"
                 onClick={clearSearch}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm font-medium"
+                className="absolute right-5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm font-medium"
                 aria-label="Clear search"
               >
                 Clear
@@ -120,16 +125,16 @@ export default function DirectoryPage() {
         </div>
       </section>
 
-      <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-2 mb-10" role="group" aria-label="Filter by category">
+      <section className="py-14 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="flex flex-wrap justify-center gap-2 mb-12" role="group" aria-label="Filter by category">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49] focus-visible:ring-offset-2 ${
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00b074] dark:focus-visible:ring-[#17ff49] focus-visible:ring-offset-2 ${
                 filter === cat
-                  ? "gradient-green text-white shadow"
-                  : "bg-[#e5f3e8] dark:bg-[#14532d]/60 text-slate-700 dark:text-slate-200 hover:bg-[#d1e7d9] dark:hover:bg-[#166534]"
+                  ? "gradient-green text-white shadow-md shadow-emerald-500/20"
+                  : "bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800"
               }`}
               aria-pressed={filter === cat}
             >
@@ -138,7 +143,7 @@ export default function DirectoryPage() {
           ))}
         </div>
 
-        <p className="text-center text-sm text-slate-500 dark:text-slate-400 mb-6" aria-live="polite">
+        <p className="text-center text-sm text-slate-500 dark:text-slate-400 mb-8" aria-live="polite">
           Showing {filtered.length} of {stores.length} stores
         </p>
 
@@ -146,9 +151,9 @@ export default function DirectoryPage() {
           {filtered.map((store) => (
             <article
               key={`${store.name}-${store.shop}`}
-              className="group p-5 rounded-2xl border border-[#d1e7d9] dark:border-[#166534] bg-white dark:bg-[#0f1a14] hover:border-[#22c55e] dark:hover:border-[#17ff49] hover:shadow-md transition-all flex gap-4 items-center"
+              className="group p-5 rounded-2xl border border-slate-200/80 dark:border-slate-800 bg-white dark:bg-slate-950 hover:border-[#00b074]/40 dark:hover:border-[#17ff49]/40 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/30 transition-all duration-300 hover:-translate-y-0.5 flex gap-4 items-center"
             >
-              <div className="w-14 h-14 shrink-0 bg-[#FBFBFB] dark:bg-[#0a0f0c] rounded-xl flex items-center justify-center p-2 overflow-hidden border border-transparent dark:border-[#166534]/50">
+              <div className="w-14 h-14 shrink-0 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center p-2 overflow-hidden border border-slate-100 dark:border-slate-800">
                 {store.logo ? (
                   <Image
                     src={`${LOGO_BASE}${store.logo}`}
@@ -164,11 +169,11 @@ export default function DirectoryPage() {
                 )}
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="font-semibold text-slate-900 dark:text-white group-hover:text-[#00b074] dark:group-hover:text-[#17ff49] transition-colors truncate">
+                <h3 className="font-semibold text-slate-900 dark:text-white group-hover:text-[#00b074] dark:group-hover:text-[#17ff49] transition-colors truncate tracking-tight">
                   {store.name}
                 </h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400">{store.category}</p>
-                <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-0.5 text-xs">
+                <div className="flex flex-wrap gap-x-3 gap-y-0.5 mt-1 text-xs">
                   {store.shop && (
                     <span className="text-[#00b074] dark:text-[#17ff49] font-medium">
                       Shop {store.shop}
@@ -189,8 +194,8 @@ export default function DirectoryPage() {
         </div>
 
         {filtered.length === 0 && (
-          <div className="text-center py-16">
-            <p className="text-slate-500 dark:text-slate-400 text-lg mb-4">
+          <div className="text-center py-20">
+            <p className="text-slate-500 dark:text-slate-400 text-lg mb-6 font-light">
               No stores match your search.
             </p>
             <button
@@ -199,14 +204,14 @@ export default function DirectoryPage() {
                 setQ("");
                 setFilter("All");
               }}
-              className="px-5 py-2.5 rounded-full bg-[#00b074] hover:bg-[#009a62] text-white text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#17ff49]"
+              className="px-6 py-3 rounded-full bg-[#00b074] hover:bg-[#009a62] text-white text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#17ff49]"
             >
               Reset filters
             </button>
           </div>
         )}
 
-        <p className="text-center text-sm text-slate-500 dark:text-slate-400 mt-10">
+        <p className="text-center text-sm text-slate-500 dark:text-slate-400 mt-14 font-light">
           Full directory and map available in-centre. Tenant details may change.
         </p>
       </section>
