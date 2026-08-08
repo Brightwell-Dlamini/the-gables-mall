@@ -7,15 +7,18 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative z-10 -mt-8 sm:-mt-12" aria-label="Key statistics">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xl shadow-black/10 dark:shadow-black/40 p-4 sm:p-6">
+    <section className="relative z-10 -mt-10 sm:-mt-14" aria-label="Key statistics">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-200/60 dark:bg-slate-800/60 shadow-2xl shadow-black/15 dark:shadow-black/50 ring-1 ring-black/5 dark:ring-white/5">
           {stats.map((s) => (
-            <div key={s.label} className="text-center py-2">
-              <p className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00b074] dark:text-[#17ff49]">
+            <div
+              key={s.label}
+              className="bg-white/95 dark:bg-slate-950/95 backdrop-blur-sm text-center py-6 sm:py-8 px-3 transition-colors hover:bg-white dark:hover:bg-slate-900"
+            >
+              <p className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#00b074] dark:text-[#17ff49]">
                 {s.value}
               </p>
-              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-400 font-medium mt-1">
+              <p className="text-[11px] sm:text-xs uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400 font-medium mt-2">
                 {s.label}
               </p>
             </div>
