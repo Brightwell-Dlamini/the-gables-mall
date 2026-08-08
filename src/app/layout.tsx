@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import DutchDivider from "@/components/DutchDivider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -48,7 +49,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://raw.githubusercontent.com/Brightwell-Dlamini/thegables-new/main/img/thegables-entrance.jpg",
+        url: "https://raw.githubusercontent.com/Brightwell-Dlamini/the-gables-mall/main/src/thegables-entrance.jpg",
         width: 1200,
         height: 630,
         alt: "The Gables Shopping Centre",
@@ -100,6 +101,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>
+          <DutchDivider />
           <Footer />
         </ThemeProvider>
       </body>
