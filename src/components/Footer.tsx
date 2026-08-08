@@ -1,71 +1,181 @@
 import Image from "next/image";
 import Link from "next/link";
 import { images } from "@/lib/assets";
+import { 
+  MapPin, 
+  Phone, 
+  Mail, 
+  Clock, 
+  Facebook, 
+  Instagram, 
+  Twitter, 
+  Youtube 
+} from "lucide-react";
+
+const socialLinks = [
+  { href: "#", icon: Facebook, label: "Facebook" },
+  { href: "#", icon: Instagram, label: "Instagram" },
+  { href: "#", icon: Twitter, label: "Twitter" },
+  { href: "#", icon: Youtube, label: "YouTube" },
+];
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/directory", label: "Directory" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/events", label: "Events" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-300 border-t border-[var(--border)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <div className="col-span-2 md:col-span-1">
-            <Image
-              src={images.logo}
-              alt="The Gables"
-              width={140}
-              height={48}
-              className="h-10 sm:h-12 w-auto mb-4 dark:brightness-0 dark:invert"
-              loading="lazy"
-            />
-            <p className="text-sm leading-relaxed mb-4">
-              Premier shopping destination in Ezulwini, Kingdom of Eswatini.
-            </p>
-            <Image
-              src={images.cbreLogo}
-              alt="CBRE Excellerate"
-              width={100}
-              height={32}
-              className="h-8 w-auto opacity-80"
-              loading="lazy"
-            />
-          </div>
-          <div>
-            <h4 className="text-slate-900 dark:text-white font-semibold mb-4 text-sm uppercase tracking-wide">
-              Explore
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link href="/" className="hover:text-[#00b074] dark:hover:text-[#17ff49]">Home</Link></li>
-              <li><Link href="/about" className="hover:text-[#00b074] dark:hover:text-[#17ff49]">About</Link></li>
-              <li><Link href="/directory" className="hover:text-[#00b074] dark:hover:text-[#17ff49]">Directory</Link></li>
-              <li><Link href="/gallery" className="hover:text-[#00b074] dark:hover:text-[#17ff49]">Gallery</Link></li>
-              <li><Link href="/events" className="hover:text-[#00b074] dark:hover:text-[#17ff49]">Events</Link></li>
-              <li><Link href="/contact" className="hover:text-[#00b074] dark:hover:text-[#17ff49]">Contact</Link></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-slate-900 dark:text-white font-semibold mb-4 text-sm uppercase tracking-wide">
-              Hours
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>Mon–Sat: <span className="text-slate-900 dark:text-white">9:00–17:00</span></li>
-              <li>Sun & Holidays: <span className="text-slate-900 dark:text-white">9:00–15:00</span></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-slate-900 dark:text-white font-semibold mb-4 text-sm uppercase tracking-wide">
-              Contact
-            </h4>
-            <ul className="space-y-2 text-sm">
-              <li>MR103, Ezulwini, Eswatini</li>
-              <li><a href="tel:+26824171173" className="hover:text-[#00b074]">+268 2417 1173</a></li>
-              <li><a href="mailto:info@thegables.co.sz" className="hover:text-[#00b074]">info@thegables.co.sz</a></li>
-            </ul>
+    <footer className="bg-slate-50 dark:bg-slate-950 border-t border-slate-200/50 dark:border-slate-800/50">
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="py-12 md:py-16 lg:py-20">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+            {/* Brand Column */}
+            <div className="space-y-4">
+              <Link href="/" className="inline-block hover:opacity-80 transition-opacity">
+                <Image
+                  src={images.logo}
+                  alt="The Gables Shopping Centre"
+                  width={160}
+                  height={48}
+                  className="h-12 w-auto dark:brightness-0 dark:invert"
+                  loading="lazy"
+                />
+              </Link>
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-xs">
+                Premier shopping destination in Ezulwini, Kingdom of Eswatini.
+              </p>
+              <Image
+                src={images.cbreLogo}
+                alt="CBRE Excellerate"
+                width={120}
+                height={36}
+                className="h-9 w-auto opacity-70 dark:brightness-0 dark:invert"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-slate-900 dark:text-white font-semibold text-sm uppercase tracking-wider mb-4">
+                Quick Links
+              </h4>
+              <ul className="space-y-2.5">
+                {navLinks.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Opening Hours */}
+            <div>
+              <h4 className="text-slate-900 dark:text-white font-semibold text-sm uppercase tracking-wider mb-4">
+                Opening Hours
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 text-[#00b074] dark:text-[#17ff49] mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      <span className="text-slate-900 dark:text-white font-medium">Mon–Sat</span>
+                      <br />
+                      9:00 – 17:00
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Clock className="w-4 h-4 text-[#00b074] dark:text-[#17ff49] mt-0.5 shrink-0" />
+                  <div>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      <span className="text-slate-900 dark:text-white font-medium">Sun & Holidays</span>
+                      <br />
+                      9:00 – 15:00
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact & Social */}
+            <div>
+              <h4 className="text-slate-900 dark:text-white font-semibold text-sm uppercase tracking-wider mb-4">
+                Get in Touch
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 text-[#00b074] dark:text-[#17ff49] mt-0.5 shrink-0" />
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    MR103, Ezulwini, Eswatini
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Phone className="w-4 h-4 text-[#00b074] dark:text-[#17ff49] mt-0.5 shrink-0" />
+                  <a
+                    href="tel:+26824171173"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors"
+                  >
+                    +268 2417 1173
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-[#00b074] dark:text-[#17ff49] mt-0.5 shrink-0" />
+                  <a
+                    href="mailto:info@thegables.co.sz"
+                    className="text-sm text-slate-600 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] transition-colors"
+                  >
+                    info@thegables.co.sz
+                  </a>
+                </li>
+              </ul>
+
+              {/* Social Links */}
+              <div className="mt-6">
+                <div className="flex items-center gap-3">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        aria-label={social.label}
+                        className="p-2 rounded-full bg-slate-200/50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 hover:bg-[#00b074] hover:text-white dark:hover:bg-[#17ff49] dark:hover:text-slate-950 transition-all duration-200 hover:scale-110"
+                      >
+                        <Icon className="w-4 h-4" />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
-          <p>© {new Date().getFullYear()} The Gables™. All rights reserved.</p>
-          <p className="text-slate-500">
+
+        {/* Bottom Bar */}
+        <div className="border-t border-slate-200/50 dark:border-slate-800/50 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-slate-500 dark:text-slate-400 text-center sm:text-left">
+            © {new Date().getFullYear()} The Gables™. All rights reserved.
+          </p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 text-center sm:text-right">
             Designed with{" "}
-            <a href="https://www.sm3-creative.com" className="text-[#00b074] dark:text-[#17ff49] hover:underline">
+            <span className="text-[#00b074] dark:text-[#17ff49]">❤</span> by{" "}
+            <a
+              href="https://www.sm3-creative.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#00b074] dark:text-[#17ff49] hover:underline font-medium transition-colors"
+            >
               SM3 Creative
             </a>
           </p>
