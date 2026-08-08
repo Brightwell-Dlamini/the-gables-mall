@@ -97,10 +97,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)]">
+      <body className="min-h-full flex flex-col bg-[var(--background)] text-[var(--foreground)] selection:bg-[#00b074]/20 dark:selection:bg-[#17ff49]/15">
         <ThemeProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 w-full">{children}</main>
           <DutchDivider />
           <Footer />
         </ThemeProvider>
