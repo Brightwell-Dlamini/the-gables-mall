@@ -7,7 +7,7 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section className="relative z-10 -mt-8 sm:-mt-12">
+    <section className="relative z-10 -mt-8 sm:-mt-12" aria-label="Key statistics">
       <div className="max-w-5xl mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 rounded-2xl bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-xl shadow-black/10 dark:shadow-black/40 p-4 sm:p-6">
           {stats.map((s) => (

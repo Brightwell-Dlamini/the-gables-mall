@@ -51,13 +51,15 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Deployment
 Deploy on Vercel. Images and assets are optimised via `next/image`.
 
-## Roadmap
+## Roadmap / Status
 - [x] Core pages & responsive layout
 - [x] Dark / light theme
 - [x] SEO metadata & Open Graph
-- [ ] Interactive store directory filtering
-- [ ] Framer Motion micro-interactions
-- [ ] Contact form validation + backend
+- [x] Directory search + category filters
+- [x] Accessibility (focus-visible, ARIA, semantic markup)
+- [x] Consistent dark-mode across all major pages
+- [ ] Framer Motion micro-interactions (optional)
+- [ ] Contact form backend / validation
 - [ ] Events calendar integration
 - [ ] Google Maps embed refinement
 
