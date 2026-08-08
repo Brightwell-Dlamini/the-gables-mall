@@ -5,15 +5,15 @@ import { images } from "@/lib/assets";
 export default function DutchDivider() {
   return (
     <div
-      className="w-full flex justify-center items-center py-8 sm:py-10 bg-[var(--background)] border-t border-[var(--border)]"
+      className="w-full flex justify-center items-center py-10 sm:py-12 bg-[var(--background)] border-t border-[var(--border)]/60"
       aria-hidden
     >
       <Image
         src={images.dutch}
         alt=""
-        width={160}
-        height={80}
-        className="h-14 sm:h-16 w-auto opacity-90 dark:opacity-80"
+        width={140}
+        height={70}
+        className="h-12 sm:h-14 w-auto opacity-70 dark:opacity-60 transition-opacity"
         loading="lazy"
       />
     </div>
