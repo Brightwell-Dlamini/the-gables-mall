@@ -2,22 +2,25 @@
 
 Modern redesign of the premier shopping destination in Ezulwini, Eswatini.
 
-## Tech Stack
-- Next.js 14
+## Stack
+- **Next.js 16.3** + React 19
 - TypeScript
-- Tailwind CSS
+- Tailwind CSS v4
 
-## Colours (preserved from original)
-- Primary: #22c55e
-- Bright: #17ff49
-- Lime: #85d32c
-- Teal: #00b074
-- Backgrounds: #FBFBFB, #e5f3e8
+## Brand Colours (preserved)
+| Role | Hex |
+|------|-----|
+| Primary | `#22c55e` |
+| Bright accent | `#17ff49` |
+| Lime | `#85d32c` |
+| Teal | `#00b074` |
+| Background | `#FBFBFB` / `#e5f3e8` |
 
-## Deploy
-Connect this repository to Vercel for instant preview.
-
+## Local development
 ```bash
 npm install
 npm run dev
 ```
+
+## Deploy
+Connect this repository to Vercel. It will auto-detect Next.js 16 and deploy.
