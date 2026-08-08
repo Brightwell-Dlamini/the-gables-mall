@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
-        pathname: "/Brightwell-Dlamini/thegables-new/**",
+        pathname: "/Brightwell-Dlamini/**",
       },
     ],
   },
