@@ -51,17 +51,23 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Deployment
 Deploy on Vercel. Images and assets are optimised via `next/image`.
 
-## Roadmap / Status
+## Completed
 - [x] Core pages & responsive layout
-- [x] Dark / light theme
-- [x] SEO metadata & Open Graph
+- [x] Dark / light theme with system-aware toggle
+- [x] SEO metadata, Open Graph & sitemap
 - [x] Directory search + category filters
 - [x] Accessibility (focus-visible, ARIA, semantic markup)
 - [x] Consistent dark-mode across all major pages
-- [ ] Framer Motion micro-interactions (optional)
-- [ ] Contact form backend / validation
-- [ ] Events calendar integration
-- [ ] Google Maps embed refinement
+- [x] Custom 404 page
+- [x] Loading state
+- [x] Header mobile scroll-lock & focus states
+- [x] Footer polish
+
+## Optional future enhancements
+- Framer Motion micro-interactions
+- Contact form backend / validation
+- Events calendar integration
+- Google Maps embed refinement
 
 ---
 Built with care for The Gables Shopping Centre, Ezulwini, Kingdom of Eswatini.
