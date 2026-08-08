@@ -1,31 +1,65 @@
 # The Gables Shopping Centre
 
-Modern Next.js 16 redesign of the premier shopping destination in Ezulwini, Eswatini.
+Modern Next.js redesign of the premier shopping destination in Ezulwini, Eswatini.
 
-## Source
-Content, logo, photography and brand colours taken from the original PHP site (`thegables-new`) and the live site thegables.co.sz.
+**Live site**: [thegables.co.sz](https://www.thegables.co.sz)
 
-## Stack
-- Next.js 16.3 + React 19
-- TypeScript
-- Tailwind CSS v4
+## Overview
+A high-performance, brand-faithful website for The Gables Shopping Centre featuring 96+ stores, cinema, dining, banking and free secure parking. Nestled in Shebas Rocks near two national parks.
 
-## Brand colours (preserved)
-- Primary: `#22c55e` / `#00b074`
-- Bright: `#17ff49`
-- Lime: `#85d32c`
-- Background: `#FBFBFB`
+## Tech Stack
+- **Framework**: Next.js 16.3 + React 19
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Fonts**: Geist Sans / Geist Mono
+- **Deployment**: Vercel-ready
+
+## Brand Colours (preserved)
+| Token | Hex |
+|-------|-----|
+| Primary | `#00b074` / `#22c55e` |
+| Bright | `#17ff49` |
+| Lime | `#85d32c` |
+| Background (light) | `#FBFBFB` |
+| Background (dark) | `#0a0f0c` |
 
 ## Pages
-- `/` — Home (hero entrance photo, stats, brands, facilities)
-- `/about` — Full about + management team
-- `/directory` — Searchable store directory with logos
-- `/contact` — Contact details + lease enquiry form
+| Route | Description |
+|-------|-------------|
+| `/` | Home — hero, stats, brands, facilities, map, events teaser, lease CTA |
+| `/about` | Full story + management team |
+| `/directory` | Searchable store directory with logos |
+| `/gallery` | Photo gallery |
+| `/events` | Upcoming events |
+| `/contact` | Contact details + lease enquiry form |
 
-## Local
+## Getting Started
+
 ```bash
 npm install
 npm run dev
 ```
 
-Deploy on Vercel — images load from the existing `thegables-new` GitHub assets.
+Open [http://localhost:3000](http://localhost:3000).
+
+## Scripts
+- `npm run dev` — development server
+- `npm run build` — production build
+- `npm run start` — start production server
+- `npm run lint` — ESLint
+
+## Deployment
+Deploy on Vercel. Images and assets are optimised via `next/image`.
+
+## Roadmap
+- [x] Core pages & responsive layout
+- [x] Dark / light theme
+- [x] SEO metadata & Open Graph
+- [ ] Interactive store directory filtering
+- [ ] Framer Motion micro-interactions
+- [ ] Contact form validation + backend
+- [ ] Events calendar integration
+- [ ] Google Maps embed refinement
+
+---
+Built with care for The Gables Shopping Centre, Ezulwini, Kingdom of Eswatini.
