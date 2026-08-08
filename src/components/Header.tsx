@@ -5,16 +5,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { images } from "@/lib/assets";
 
 const nav = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/directory", label: "Directory" },
+  { href: "/gallery", label: "Gallery" },
+  { href: "/events", label: "Events" },
   { href: "/contact", label: "Contact" },
 ];
-
-const LOGO =
-  "https://raw.githubusercontent.com/Brightwell-Dlamini/thegables-new/main/img/the-gables-logo.png";
 
 export default function Header() {
   const pathname = usePathname();
@@ -29,7 +29,7 @@ export default function Header() {
             className="relative h-9 sm:h-10 md:h-12 w-24 sm:w-28 md:w-36 shrink-0"
           >
             <Image
-              src={LOGO}
+              src={images.logo}
               alt="The Gables Shopping Centre"
               fill
               sizes="(max-width: 640px) 96px, 144px"
@@ -38,7 +38,7 @@ export default function Header() {
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7 text-sm font-medium">
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -55,13 +55,13 @@ export default function Header() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="px-4 lg:px-5 py-2 lg:py-2.5 rounded-full gradient-green text-white text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+              className="px-4 xl:px-5 py-2 rounded-full gradient-green text-white text-sm shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
               Lease Space
             </Link>
           </nav>
 
-          <div className="flex items-center gap-1 md:hidden">
+          <div className="flex items-center gap-1 lg:hidden">
             <ThemeToggle />
             <button
               className="p-2 rounded-lg hover:bg-[#e5f3e8] dark:hover:bg-[#14532d]"
@@ -82,7 +82,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-[var(--border)] bg-[var(--card)]/95 px-4 py-4 space-y-1">
+        <div className="lg:hidden border-t border-[var(--border)] bg-[var(--card)]/95 px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
           {nav.map((item) => (
             <Link
               key={item.href}
@@ -93,13 +93,6 @@ export default function Header() {
               {item.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            className="block py-2.5 px-3 rounded-lg text-sm font-medium text-[#00b074] dark:text-[#17ff49]"
-            onClick={() => setOpen(false)}
-          >
-            Lease Space
-          </Link>
         </div>
       )}
     </header>
