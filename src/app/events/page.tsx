@@ -38,35 +38,29 @@ const eventsList = [
 export default function EventsPage() {
   return (
     <>
-      <section className="relative h-[42vh] min-h-[300px] flex items-end overflow-hidden" aria-label="Events hero">
-        <Image
-          src={images.exterior}
-          alt="The Gables Shopping Centre exterior"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover scale-105"
-          quality={80}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
-        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-14 w-full">
-          <p className="text-[#17ff49] font-medium tracking-[0.22em] uppercase text-[11px] sm:text-xs mb-3">
+      <section className="pt-28 sm:pt-36 pb-12 bg-slate-950 text-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+          <p className="text-[#17ff49] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4">
             What’s on
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em]">Events & News</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-[-0.04em] leading-[1.05] max-w-xl">
+            Events &
+            <br />
+            News
+          </h1>
         </div>
       </section>
 
-      <section className="py-20 sm:py-28 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        <div className="grid gap-14 sm:gap-16">
+      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
+        <div className="space-y-16 sm:space-y-24">
           {eventsList.map((ev, i) => (
             <article
               key={ev.title}
-              className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${
+              className={`grid md:grid-cols-2 gap-8 md:gap-14 items-center ${
                 i % 2 === 1 ? "md:[&>*:first-child]:order-2" : ""
               }`}
             >
-              <div className="relative aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-black/10 dark:shadow-black/40 border border-slate-200/50 dark:border-slate-800 ring-1 ring-black/5 dark:ring-white/5">
+              <div className="relative aspect-[16/10] rounded-3xl overflow-hidden">
                 <Image
                   src={ev.img}
                   alt=""
@@ -77,13 +71,13 @@ export default function EventsPage() {
                 />
               </div>
               <div>
-                <p className="text-[#00b074] dark:text-[#17ff49] text-sm font-semibold mb-3 tracking-wide">
+                <p className="text-[#00b074] dark:text-[#17ff49] text-xs font-semibold tracking-widest uppercase mb-3">
                   {ev.date}
                 </p>
-                <h2 className="text-2xl sm:text-3xl font-bold mb-5 tracking-[-0.02em] text-slate-900 dark:text-white leading-tight">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[-0.03em] text-slate-900 dark:text-white mb-4 leading-tight">
                   {ev.title}
                 </h2>
-                <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-lg font-light">
+                <p className="text-slate-600 dark:text-slate-400 text-lg font-light leading-relaxed">
                   {ev.body}
                 </p>
               </div>
@@ -91,14 +85,16 @@ export default function EventsPage() {
           ))}
         </div>
 
-        <div className="mt-24 text-center rounded-3xl gradient-green p-12 sm:p-16 text-white shadow-2xl shadow-emerald-500/20">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-4 tracking-tight">Host an event with us</h2>
-          <p className="text-white/90 mb-10 max-w-md mx-auto font-light leading-relaxed">
+        <div className="mt-24 sm:mt-32 rounded-3xl bg-slate-950 text-white p-12 sm:p-16 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] mb-4">
+            Host an event with us
+          </h2>
+          <p className="text-white/50 mb-10 max-w-md mx-auto font-light">
             Activations, pop-ups and community gatherings — talk to centre management.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-9 py-4 bg-white text-[#00b074] font-bold rounded-full hover:bg-slate-50 transition-all duration-300 shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#00b074]"
+            className="inline-flex items-center gap-2 px-9 py-4 bg-[#17ff49] text-slate-950 font-bold rounded-full hover:bg-white transition-colors"
           >
             Contact management
             <span aria-hidden>→</span>
