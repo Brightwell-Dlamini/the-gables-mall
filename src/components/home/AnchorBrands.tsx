@@ -19,38 +19,37 @@ export default function AnchorBrands() {
   return (
     <section className="py-24 sm:py-32 bg-slate-950 text-white" aria-labelledby="anchors-heading">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
           <div>
-            <p className="text-[#17ff49] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4">
+            <p className="text-[#17ff49] text-[11px] font-bold tracking-[0.3em] uppercase mb-4">
               Directory
             </p>
-            <h2 id="anchors-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-[-0.03em]">
+            <h2 id="anchors-heading" className="text-3xl sm:text-4xl md:text-5xl font-black tracking-[-0.035em] leading-[1.05]">
               Brands you know.
               <br />
-              <span className="text-white/40">All in one place.</span>
+              <span className="text-white/25">All in one place.</span>
             </h2>
           </div>
           <Link
             href="/directory"
-            className="group inline-flex items-center gap-2 text-[#17ff49] font-semibold text-sm hover:gap-3 transition-all shrink-0"
+            className="group inline-flex items-center gap-2 text-[#17ff49] font-bold text-sm hover:gap-3 transition-all shrink-0"
           >
-            Full directory
-            <span aria-hidden>→</span>
+            Full directory →
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {anchors.map((b) => (
             <div
               key={b.name}
-              className="bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 rounded-2xl p-6 sm:p-8 flex items-center justify-center h-28 sm:h-32 transition-all duration-300"
+              className="bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] rounded-2xl p-6 sm:p-8 flex items-center justify-center h-24 sm:h-28 transition-all duration-300"
             >
               <Image
                 src={`${LOGO_BASE}${b.logo}`}
                 alt={b.name}
-                width={140}
-                height={56}
-                className="max-h-12 sm:max-h-14 w-auto object-contain brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+                width={130}
+                height={50}
+                className="max-h-10 sm:max-h-12 w-auto object-contain brightness-0 invert opacity-70 hover:opacity-100 transition-opacity"
                 loading="lazy"
               />
             </div>
