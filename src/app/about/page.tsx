@@ -6,10 +6,6 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Learn about The Gables Shopping Centre in Ezulwini — Dutch-style architecture, 96+ stores, free parking, and CBRE Excellerate property management.",
-  openGraph: {
-    title: "About The Gables Shopping Centre",
-    description: "Value and convenience shopping in the heart of Shebas Rocks, Ezulwini, Eswatini.",
-  },
 };
 
 const team = [
@@ -22,109 +18,83 @@ const team = [
 export default function AboutPage() {
   return (
     <>
-      <section className="relative h-72 md:h-96 flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] sm:min-h-[60vh] flex items-end overflow-hidden">
         <Image
           src={images.entrance}
-          alt="The Gables Shopping Centre entrance"
+          alt="The Gables entrance"
           fill
           priority
           sizes="100vw"
-          className="object-cover scale-105"
-          quality={80}
+          className="object-cover"
+          quality={85}
         />
-        <div className="absolute inset-0 bg-black/55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-        <div className="relative text-center px-5">
-          <p className="text-[#17ff49] font-medium tracking-[0.22em] uppercase text-[11px] sm:text-xs mb-3">
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pb-16 sm:pb-20 w-full">
+          <p className="text-[#17ff49] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4">
             Our story
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-white tracking-[-0.03em]">About Us</h1>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-[-0.04em] leading-[1.05] max-w-xl">
+            Dutch design.
+            <br />
+            African soul.
+          </h1>
         </div>
       </section>
 
       <section className="py-20 sm:py-28 max-w-3xl mx-auto px-5 sm:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 tracking-[-0.03em] bg-clip-text text-transparent gradient-green">
-          Welcome to The Gables
-        </h2>
-        <div className="space-y-5 text-slate-600 dark:text-slate-300 leading-relaxed text-lg font-light">
+        <div className="space-y-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed font-light">
           <p>
-            The Gables Shopping Centre is a retail and office development, situated in a superb,
-            convenient location, close to two national parks. The centre is in close proximity to
-            Mbabane, Matsapha and Manzini and is well connected with public transport and plenty of
-            accommodation options in the vicinity.
+            The Gables Shopping Centre is a retail and office development in a superb location close to two national parks — well connected to Mbabane, Matsapha and Manzini.
           </p>
           <p>
-            The Gables Shopping Centre is a value and convenience inspired shopping destination
-            located in the heart of Shebas Rocks, Ezulwini in The Kingdom of Eswatini. Home to a
-            variety of well-known convenient stores, restaurants, a cinema, banks and a variety of
-            retail stores to make shopping more memorable!
+            A value and convenience destination in the heart of Shebas Rocks, Ezulwini. Home to well-known stores, restaurants, a cinema, banks and retail that make shopping memorable.
           </p>
           <p>
-            The Gables Shopping Centre offers free and secure parking to shoppers with a total area
-            of 24,115.31 m² retail space and is home to over 96 stores. In addition to a vast array
-            of local and international brands, the Shopping Centre has uniquely identified court
-            areas that make easy shopping navigation, as well as exceptional access, location, and
-            visibility. The architectural aspects of the Shopping Centre of choice demonstrate the
-            Dutch Style architecture that sets the mood.
-          </p>
-          <p>
-            With big brands in our corridors like Clicks, Pick n Pay, Woolworths, and Shoprite, you
-            can be sure that shopping at The Gables is everything you can expect and more.
+            Free secure parking, 24,115 m² of retail space, and over 96 stores. Dutch-style architecture sets the mood — with anchors like Clicks, Pick n Pay, Woolworths and Shoprite.
           </p>
         </div>
       </section>
 
-      <section className="py-16 bg-slate-50/80 dark:bg-[#0f1a14]/60">
+      <section className="py-16 bg-slate-950 text-white">
         <div className="max-w-3xl mx-auto px-5 text-center">
-          <h2 className="text-2xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white">
-            Property Management
-          </h2>
+          <p className="text-[#17ff49] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4">
+            Management
+          </p>
           <Image
             src={images.cbreLogo}
             alt="CBRE Excellerate"
-            width={160}
-            height={48}
-            className="h-12 w-auto mx-auto mb-5 dark:brightness-0 dark:invert opacity-80"
+            width={140}
+            height={42}
+            className="h-10 w-auto mx-auto mb-5 brightness-0 invert opacity-80"
           />
-          <p className="text-slate-600 dark:text-slate-300 max-w-xl mx-auto font-light leading-relaxed">
-            We are the market leader in commercial real estate services and investments.
-            With services, insights and data that span every dimension of the industry,
-            we create solutions for clients of every size across Africa & the Middle East.
+          <p className="text-white/50 font-light leading-relaxed max-w-lg mx-auto">
+            Market leader in commercial real estate services across Africa & the Middle East.
           </p>
         </div>
       </section>
 
       <section className="py-20 sm:py-28 max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        <div className="text-center mb-14">
-          <p className="inline-flex items-center gap-2 text-[#00b074] dark:text-[#17ff49] font-medium tracking-[0.22em] uppercase text-[11px] sm:text-xs mb-4">
-            <span className="w-6 h-px bg-current opacity-70" aria-hidden />
-            Team
-            <span className="w-6 h-px bg-current opacity-70" aria-hidden />
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-slate-900 dark:text-white">
-            Meet Our Team
-          </h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+        <p className="text-[#00b074] dark:text-[#17ff49] text-[11px] font-semibold tracking-[0.3em] uppercase mb-4 text-center">
+          Team
+        </p>
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-center text-slate-900 dark:text-white mb-14">
+          Meet the people behind the centre
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {team.map((m) => (
             <div
               key={m.name}
-              className="bg-white dark:bg-slate-950 rounded-2xl sm:rounded-3xl p-7 border border-slate-200/80 dark:border-slate-800 text-center shadow-sm hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-black/30 transition-all duration-300 hover:-translate-y-0.5"
+              className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-7 border border-slate-200 dark:border-slate-800 text-center"
             >
-              <div className="w-20 h-20 rounded-full gradient-green mx-auto mb-5 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-emerald-500/20">
+              <div className="w-16 h-16 rounded-full bg-slate-950 dark:bg-[#17ff49] mx-auto mb-5 flex items-center justify-center text-white dark:text-slate-950 text-lg font-bold">
                 {m.name.split(" ").map((n) => n[0]).join("")}
               </div>
-              <h3 className="font-semibold text-lg text-slate-900 dark:text-white tracking-tight">{m.name}</h3>
+              <h3 className="font-semibold text-slate-900 dark:text-white">{m.name}</h3>
               <p className="text-sm text-[#00b074] dark:text-[#17ff49] mb-3">{m.role}</p>
-              <a
-                href={`mailto:${m.email}`}
-                className="text-xs text-slate-500 dark:text-slate-400 hover:text-[#00b074] dark:hover:text-[#17ff49] break-all transition-colors"
-              >
+              <a href={`mailto:${m.email}`} className="text-xs text-slate-500 hover:text-[#00b074] dark:hover:text-[#17ff49] break-all">
                 {m.email}
               </a>
-              {m.phone && (
-                <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">{m.phone}</p>
-              )}
+              {m.phone && <p className="text-sm text-slate-500 mt-1">{m.phone}</p>}
             </div>
           ))}
         </div>
